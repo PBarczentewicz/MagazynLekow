@@ -20,4 +20,9 @@ public class Drug {
         this.narcotic = narcotic;
         this.howMany = howMany;
     }
+
+    public int getQuantity (){
+        return howMany;
+    }
+
 }

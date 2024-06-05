@@ -1,16 +1,15 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class MedicineWarehouse {
 
     PersonData personData;
-    Drug drug;
-
 
     ArrayList<Drug> drugList = new ArrayList<>();
 
     public MedicineWarehouse() {
         addDrugToMagazine();
-
+        personData = new PersonData();
     }
 
     public void addDrugToMagazine() {
@@ -21,35 +20,17 @@ public class MedicineWarehouse {
         drugList.add(new Drug("Ibuprofen", "44400291GF", "20241230", false, 160));
     }
 
-
-    public Rescuer isQualifiedPerson(String name) {
-        for (Rescuer temp : personData.rescuerList) {
-            if (temp.name.equals(name)) {
-                if (temp.medicalProfession == true) {
-                    return temp;
-                } else {
-                    System.out.println("ratownik nie jest uprawiony do obrotu lekami");
+    public void drugConsume (Rescuer useDrugRescuer, int howMany, String name){
+        if (useDrugRescuer.medicalProfession) {
+            for (Drug temp : drugList) {
+                if (Objects.equals(name, temp.drugName)) {
+                    if (temp.getQuantity() >= howMany) {
+                        temp.howMany -= howMany;
+                        System.out.println("Usunąłem " + howMany + " Nowa ilość to: " + temp.howMany);
+                    } else System.out.println("ilość leku w magazynie jest zbyt mała");
                 }
             }
         }
-        return null;
+        else System.out.println("Nie masz uprawnień");
     }
-
-    public void drugConsume (String useDrugName, int howMany, String name){
-        Rescuer rescuer = isQualifiedPerson(name);
-        for (Drug temp : drugList){
-            if (useDrugName == drug.drugName){
-                if (getQuantity(drug.howMany) < howMany){
-                    drug.howMany -= howMany;
-                }
-                else System.out.println("ilość leku w magazynie jest zbyt mała");
-            }
-        }
-
-    }
-
-    private int getQuantity (){
-        return drug.howMany;
-    }
-
 }

@@ -14,4 +14,14 @@ public class PersonData {
         rescuerList.add(new Rescuer(rescuerList.size() + 1, "Piotr", "Krupa", "Ratownik", false, true));
         rescuerList.add(new Rescuer(rescuerList.size() + 1, "Dominik", "Jagieła", "Starszy Ratownik", false, true));
     }
+
+    public Rescuer FindRescuer(String name) {
+        for (Rescuer temp : rescuerList) {
+            if (temp.name.equals(name)) {
+                System.out.println("Hej jestem " + temp.name);
+                return  temp;
+            }
+        }
+        return null;
+    }
 }
