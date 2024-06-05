@@ -20,7 +20,7 @@ public class MedicineWarehouse {
         drugList.add(new Drug("Ibuprofen", "44400291GF", "20241230", false, 160));
     }
 
-    public void drugConsume (Rescuer useDrugRescuer, int howMany, String name){
+    public void drugConsume(Rescuer useDrugRescuer, int howMany, String name) {
         if (useDrugRescuer.medicalProfession) {
             for (Drug temp : drugList) {
                 if (Objects.equals(name, temp.drugName)) {
@@ -30,7 +30,26 @@ public class MedicineWarehouse {
                     } else System.out.println("ilość leku w magazynie jest zbyt mała");
                 }
             }
-        }
-        else System.out.println("Nie masz uprawnień");
+        } else System.out.println("Nie masz uprawnień");
     }
+
+    public Drug getDrug(String drugName) {
+        for (Drug drug : drugList) {
+            if (drug.drugName.equals(drugName)) ;
+            return drug;
+        }
+        return null;
+    }
+
+    public boolean isNarcotic(String drugName) {
+        Drug drug = getDrug(drugName);
+        if (drug.narcotic = true) {
+            return drug.narcotic;
+        }
+        return false;
+    }
+
+
+
 }
+
