@@ -7,9 +7,11 @@ public class Main {
         Rescuer rescuerLogin;
 
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj swoje imie:");
         rescuerLogin = medicineWarehouse.personData.FindRescuer(scanner.next());
 
         medicineWarehouse.drugConsume(rescuerLogin, 2, "Paracetamol");
+        medicineWarehouse.whatIsNarcotic();
 
 
 

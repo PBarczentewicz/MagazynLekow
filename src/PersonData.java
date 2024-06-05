@@ -19,9 +19,11 @@ public class PersonData {
         for (Rescuer temp : rescuerList) {
             if (temp.name.equals(name)) {
                 System.out.println("Hej jestem " + temp.name);
-                return  temp;
+                return temp;
             }
         }
         return null;
     }
+
+
 }

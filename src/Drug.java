@@ -13,7 +13,7 @@ public class Drug {
     int howMany;
 
 
-    public Drug (String drugName, String serialNumber, String bestBefore, Boolean narcotic, int howMany) {
+    public Drug(String drugName, String serialNumber, String bestBefore, Boolean narcotic, int howMany) {
         this.drugName = drugName;
         this.serialNumber = serialNumber;
         this.bestBefore = bestBefore;
@@ -21,8 +21,14 @@ public class Drug {
         this.howMany = howMany;
     }
 
-    public int getQuantity (){
+    public int getQuantity() {
         return howMany;
     }
 
+    public boolean isNarcotic() {
+        if (this.narcotic == true) {
+            return true;
+        }
+        return false;
+    }
 }

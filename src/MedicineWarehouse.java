@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -17,7 +18,7 @@ public class MedicineWarehouse {
         drugList.add(new Drug("Fentanyl", "23456789", "20260101", true, 55));
         drugList.add(new Drug("Diazepam", "4567IL", "20303006", true, 3));
         drugList.add(new Drug("Paracetamol", "FU9090", "20210601", false, 12));
-        drugList.add(new Drug("Ibuprofen", "44400291GF", "20241230", false, 160));
+        drugList.add(new Drug("Ibuprofen", "44400291GF", "20240630", false, 160));
     }
 
     public void drugConsume(Rescuer useDrugRescuer, int howMany, String name) {
@@ -41,14 +42,22 @@ public class MedicineWarehouse {
         return null;
     }
 
-    public boolean isNarcotic(String drugName) {
-        Drug drug = getDrug(drugName);
-        if (drug.narcotic = true) {
-            return drug.narcotic;
+    public void whatIsNarcotic (){
+        for (Drug drug : drugList){
+            if (drug.isNarcotic()){
+                System.out.println(drug.drugName + "jest narkotykiem. Jego ilość w magazynie wynosi: " + drug.howMany);
+            }
         }
-        return false;
     }
 
+    public void end3Weeks(){
+        LocalDate today = LocalDate.now();
+        LocalDate tempDate = today.plusWeeks(3);
+        for (Drug drug : drugList){
+            if (tempDate.isAfter(drug.bestBefore))
+                System.out.println("Lek " + drug.drugName + " jest poza terminem");
+        }
+    }
 
 
 }
