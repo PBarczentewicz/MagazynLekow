@@ -10,6 +10,7 @@ public class MedicineWarehouse {
 
     public MedicineWarehouse() {
         addDrugToMagazine();
+
     }
 
     public void addDrugToMagazine() {
@@ -47,7 +48,7 @@ public class MedicineWarehouse {
 
     }
 
-    private int getQuantity (int temp){
+    private int getQuantity (){
         return drug.howMany;
     }
 
