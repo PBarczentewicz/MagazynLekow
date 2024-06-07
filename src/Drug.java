@@ -26,9 +26,6 @@ public class Drug {
     }
 
     public boolean isNarcotic() {
-        if (this.narcotic == true) {
-            return true;
-        }
-        return false;
+        return this.narcotic;
     }
 }

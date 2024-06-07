@@ -8,10 +8,11 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj swoje imie:");
-        rescuerLogin = medicineWarehouse.personData.FindRescuer(scanner.next());
+        rescuerLogin = medicineWarehouse.personData.FindRescuer("Przemysław");
 
         medicineWarehouse.drugConsume(rescuerLogin, 2, "Paracetamol");
         medicineWarehouse.whatIsNarcotic();
+        medicineWarehouse.end3Weeks();
 
 
 
