@@ -4,8 +4,8 @@ import java.util.logging.SocketHandler;
 
 public class Log {
 
-    public MedicineWarehouse medicineWarehouse;
-    public PersonData personData;
+    public MedicineWarehouse medicineWarehouse = new MedicineWarehouse();
+    public PersonData personData = new PersonData();
     public Rescuer userLog;
     Scanner scanner = new Scanner(System.in);
 
@@ -14,14 +14,20 @@ public class Log {
         WhatToDo();
     }
 
+
     public void UserLogin() {
         System.out.println("Podaj swoje imie: ");
         String name = scanner.nextLine();
         System.out.println("Podaj swoje nazwisko: ");
         String surname = scanner.nextLine();
         userLog = personData.FindRescuer(name, surname);
-        System.out.println("jesteś zalogowany jako: " + userLog.name + " " + userLog.surname);
+        if (userLog != null) {
+            System.out.println("jesteś zalogowany jako: " + userLog.name + " " + userLog.surname);
+        } else {
+            System.out.println("nie odnalzałem ratownika o podanych danych");
+        }
     }
+
 
     public void WhatToDo() {
         if (userLog != null) {
@@ -34,11 +40,13 @@ public class Log {
                     if (userLog.medicalProfession) {
                         System.out.println("Podaj nazwę leku: ");
                         String drugName = scanner.nextLine();
+                        System.out.println(" ");
                         System.out.println("Podaj ilość leku do zużycia: ");
                         int quantity = scanner.nextInt();
                         medicineWarehouse.drugConsume(quantity, drugName);
                     } else {
                         System.out.println("nie masz uprawnień do wykonania takiej operacji!");
+                        break;
                     }
                 case 2:
                     if (userLog != null) {
