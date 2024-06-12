@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class PersonData {
@@ -15,7 +14,7 @@ public class PersonData {
         rescuerList.add(new Rescuer(rescuerList.size() + 1, "Dominik", "Jagieła", "Starszy Ratownik", false, true));
     }
 
-    public Rescuer FindRescuer(String name) {
+    public Rescuer FindRescuer(String name, String surname) {
         for (Rescuer temp : rescuerList) {
             if (temp.name.equals(name)) {
                 System.out.println("Hej jestem " + temp.name);

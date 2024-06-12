@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -13,7 +12,6 @@ public class MedicineWarehouse {
     public MedicineWarehouse() {
         addDrugToMagazine();
         personData = new PersonData();
-        loginInfo = new Log();
     }
 
     public void addDrugToMagazine() {
