@@ -38,9 +38,10 @@ public class Log {
             switch (myChoice) {
                 case 1:
                     if (userLog.medicalProfession) {
+                        Scanner scanner = new Scanner(System.in);
                         System.out.println("Podaj nazwę leku: ");
-                        String drugName = scanner.nextLine();
-                        System.out.println(" ");
+                        String drugName = new Scanner(System.in).nextLine();
+                        new Scanner(System.in).nextInt();
                         System.out.println("Podaj ilość leku do zużycia: ");
                         int quantity = scanner.nextInt();
                         medicineWarehouse.drugConsume(quantity, drugName);
