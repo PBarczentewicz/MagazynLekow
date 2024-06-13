@@ -6,7 +6,9 @@ public class Log {
 
     public MedicineWarehouse medicineWarehouse = new MedicineWarehouse();
     public PersonData personData = new PersonData();
+    ActionData actionData = new ActionData();
     public Rescuer userLog;
+
     Scanner scanner = new Scanner(System.in);
 
     public Log() {
@@ -34,6 +36,7 @@ public class Log {
             System.out.println("Jaką operacje chcesz wykonać? ");
             System.out.println("1 ---> sciągnąć lek z magazynu po akcji");
             System.out.println("2 ---> sprawdzić daty ważności leków");
+            System.out.println("3---> dodać dane akcji do archiwum");
             int myChoice = scanner.nextInt();
             switch (myChoice) {
                 case 1:
@@ -50,10 +53,14 @@ public class Log {
                         break;
                     }
                 case 2:
-                    if (userLog != null) {
+                    if (userLog != null){
                         medicineWarehouse.end3Weeks();
                     } else {
                         System.out.println("nie jesteś ratownikiem. Nie możesz sprawdzić magazynu leków");
+                    }
+                case 3:
+                    if (userLog!=null){
+                        actionData.//addAction
                     }
             }
         }

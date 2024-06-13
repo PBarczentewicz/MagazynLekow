@@ -13,5 +13,8 @@ public class Action {
 
     Scanner scanner = new Scanner(System.in);
 
+    public Action(int idAction, String actionDate, String actionCoordinatorName, String actionCoordinatorSurname, String rescueBase) {
+
     }
+}
 
